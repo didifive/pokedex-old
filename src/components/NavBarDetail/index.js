@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { NavBarStyles, BackContainer } from "./styles";
+import { NavBarStyles, BackContainer, TitleContainer } from "./styles";
 
 const NavBarDetail = () => {
   return (
@@ -9,10 +9,15 @@ const NavBarDetail = () => {
       <BackContainer>
         <Link to="/pokedex">
           <h2>
-            <i className="arrow circle left icon" />
+            <span class="material-icons">
+              ad_units
+            </span>
           </h2>
         </Link>
       </BackContainer>
+      <TitleContainer className="title-container">
+        <h1>Pokemon Details</h1>
+      </TitleContainer>
     </NavBarStyles>
   );
 };

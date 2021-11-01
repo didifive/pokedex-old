@@ -9,12 +9,14 @@ const NavBar = () => {
       <BackContainer>
         <Link to="/">
           <h2>
-            <i className="arrow circle left icon" />
+            <span class="material-icons">
+              ad_units
+            </span>
           </h2>
         </Link>
       </BackContainer>
       <TitleContainer className="title-container">
-        <h1>Escolha seu Pokemon</h1>
+        <h1>My Pokedex</h1>
       </TitleContainer>
     </NavBarStyles>
   );
