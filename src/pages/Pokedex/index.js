@@ -8,7 +8,9 @@ import PokemonList from "../../components/PokemonList";
 function Pokedex() {
   return (
     <div className="pokedex-container">
-      <NavBar />
+      <NavBar 
+        page="pokedex"
+      />
       <div>
         <PokemonList />
       </div>

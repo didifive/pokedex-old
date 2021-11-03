@@ -2,13 +2,15 @@ import React from "react";
 
 import "./styles.css";
 
-import NavBarDetail from "../../components/NavBarDetail";
+import NavBar from "../../components/NavBar";
 import PokemonComponent from "../../components/Pokemon";
 
 function Pokemon() {
   return (
     <div className="header-container">
-      <NavBarDetail />
+      <NavBar
+        page="pokemon"
+      />
       <div id="container-fluid">
         <PokemonComponent />
       </div>
