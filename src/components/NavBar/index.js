@@ -18,18 +18,20 @@ const NavBar = (props) => {
             className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top "
             bgColor={colors.bgHeader}
           >
-            <BackContainer
-              textColor={colors.text}
-              hoverColor={colors.hover}
-            >
-              <Link to="/">
-                <h2>
-                  <span className="material-icons">
-                    ad_units
-                  </span>
-                </h2>
-              </Link>
-            </BackContainer>
+            {page === 'pokemon' && 
+              <BackContainer
+                textColor={colors.text}
+                hoverColor={colors.hover}
+              >
+                <Link to="/">
+                  <h2>
+                    <span className="material-icons">
+                      arrow_circle_left
+                    </span>
+                  </h2>
+                </Link>
+              </BackContainer>
+            }
             <TitleContainer
               className="title-container"
               textColor={colors.text}
