@@ -6,22 +6,30 @@
 
 <p align="center">
 
-<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Alquipo/React-PokeDex">
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/didifive/pokedex-old">
 
-<img alt="Repository size" src="https://img.shields.io/github/repo-size/Alquipo/React-PokeDex">
+<img alt="Repository size" src="https://img.shields.io/github/repo-size/didifive/pokedex-old">
 
 <a href="https://www.linkedin.com/in/alquiponeto/">
     <img alt="Made by Alquipo" src="https://img.shields.io/badge/made%20by-AlquipoNeto-blue">
 </a>
 
-<a href="https://github.com/Alquipo/React-PokeDex/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Alquipo/React-PokeDex?color=blue">
+<a href="https://www.linkedin.com/in/luis-carlos-zancanela/">
+    <img alt="Update by Didi" src="https://img.shields.io/badge/update%20by-Didi-green">
+</a>
+
+<a href="https://github.com/didifive/pokedex-old/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/didifive/pokedex-old?color=green">
 </a>
 
 <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?color=blue">
 
-<a href="https://app.netlify.com/sites/alquipo-pokedex/deploys">
-    <img alt="Netlify" src="https://api.netlify.com/api/v1/badges/534d0639-5a3a-43ae-b699-f3e7fc31113e/deploy-status">
+</p>
+
+<p align="center">
+
+<a href="https://app.netlify.com/sites/pokedex-didi/deploys">
+    <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/2c9f0c9d-42e6-43d1-bd77-7e3fb120782f/deploy-status">
 </a>
 
 </p>
@@ -34,35 +42,36 @@
 
 </p>
 <h2 align="center">
-  Bem Vindo a Pokedex
+  Bem Vindo à Pokedex
 </h2>
 
 ## 🚀 Sobre o Projeto
 
-Este projeto consiste em criar uma pokedex consumindo uma [API](pokeapi.co), a ideia e colocar conceitos que estou aprendendo ao longo de minha jornada. Projeto ainda em construção
+Este é um *Fork* do projeto de **[Alquipo/pokedex-old](https://github.com/Alquipo/pokedex-old)**, com adição da **Context API** do React apresentado pelo **[Júlio Gonçalves](https://github.com/thejullius)** na aula **Trabalhando com context API no react** do **Bootcamp [Impulso React Web Developer][Impulso React Web Developer]** da **[dio.][dio.]**. Nele foram realizadas as modificações:
+  * Adicionado temas *dark* e *light* com propriedades para cores de fundo e texto correpondentes aos temas;
+  * Adição do *switch* de troca de tema no cabeçalho;
+  * Ajuste do componente `NavBar` para reconhecer, permitir mudar o tema e também mudar suas cores com tema;
+  * Remoção do componente `NavBarDetail` visto que o `NavBar` foi atualizado para reconhecer a página (pokedex ou pokemon) e modificar conforme necessário;
 
-## 🎨 Layout
-
-<h4 align="center">
-  <img alt="Layout" title="Layout" src=".github/layout.gif"/>
-</h4>
-
-<div align="center">
-
-<button><a target="_blank" href="https://alquipo-pokedex.netlify.app"><img alt="netlify" src=".github/netlify.svg" ></img></a></button>
-
-</div>
+  ```
+  TODO:
+  * Adicionar o tema para os componentes `Pokemon`, `PokemonCard` e `Search`;
+  * Adicionar localStorage para guardar as informações de: Tema, Pokemon Pego, Pokemon Favoritado;
+  * Aprimorar a query.
+  ```
 
 ## 🔨 Tecnologias:
 
 - [ReactJs][reactjs]
+- [Context API][Context API]
 - [Axios][axios]
+- [pokeAPI][pokeAPI]
 
 ## 🚀 Como rodar este projeto
 
-Para clonar e executar este aplicativo, você precisará de [Git](https://git-scm.com), [NodeJs][nodejs] Instalado em seu computador.
+Para clonar e executar este aplicativo, você precisará de [Git](https://git-scm.com) e [NodeJs][nodejs] Instalado em seu computador.
 
-### 🌀 Clonando o repositório
+### 🌀 Clonando o repositório do Alquipo
 
 ```bash
 # Clone este repositório
@@ -72,7 +81,7 @@ $ git clone https://github.com/Alquipo/React-PokeDex
 $ cd React-PokeDex
 ```
 
-### 🧭 Rodando a aplicação web
+### 🧭 Rodando a aplicação web localmente
 
 ```bash
 # Instale as dependências
@@ -84,9 +93,9 @@ $ yarn start
 # O servidor iniciara na porta:3000 - acesse http://localhost:3000
 ```
 
-## 🤔 Como contribuir para o projeto
+## 🤔 Como contribuir para o projeto do Alquipo
 
-- Faça um **fork** do projeto;
+- Faça um *Fork* do projeto [Alquipo/pokedex-old](https://github.com/Alquipo/pokedex-old);
 - Crie uma nova branch com as suas alterações: `git checkout -b my-feature`
 - Salve as alterações e crie uma mensagem de commit contando o que você fez:`git commit -m "feature: My new feature"`
 - Envie as suas alterações: `git push origin my-feature`
@@ -95,9 +104,9 @@ $ yarn start
 
 ## 📝 Licença
 
-Este projeto esta sobe a licença MIT. Veja a [LICENÇA][license] para saber mais.
+Este projeto está sob a licença MIT. Veja a [LICENÇA][license] para saber mais.
 
-Feito com ❤️ por Alquipo Neto 👋🏽 [Entre em contato!](https://www.linkedin.com/in/alquiponeto/)
+Atualizado com ❤️ por Luis Carlos Zancanela 👋🏽 [Entre em contato!](https://www.linkedin.com/in/luis-carlos-zancanela/)
 
 [nodejs]: https://nodejs.org/
 [express]: https://expressjs.com/
@@ -108,9 +117,13 @@ Feito com ❤️ por Alquipo Neto 👋🏽 [Entre em contato!](https://www.linke
 [postgres]: https://www.postgresql.org/
 [multer]: https://www.npmjs.com/package/multer
 [reactjs]: https://reactjs.org/
+[Context API]: https://pt-br.reactjs.org/docs/context.html
 [axios]: https://www.npmjs.com/package/axios
 [babel]: https://babeljs.io/
 [webpack]: https://webpack.js.org/
 [rs]: https://rocketseat.com.br
 [license]: https://opensource.org/licenses/MIT
 [typescript]: https://www.typescriptlang.org/
+[Impulso React Web Developer]: https://web.dio.me/track/impulso-react-web-developer
+[dio.]: https://dio.me/
+[pokeAPI]: https://pokeapi.co/
