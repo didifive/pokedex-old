@@ -42,7 +42,6 @@ export const BackContainer = styled.nav.attrs(props => ({
 export const TitleContainer = styled.div.attrs(props => ({
   textColor: props.textColor || '#FFF',
 }))`
-  width: 65%;
   text-align: center;
   margin: 0;
 
