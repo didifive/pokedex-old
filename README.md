@@ -52,12 +52,11 @@ Este é um *Fork* do projeto de **[Alquipo/pokedex-old](https://github.com/Alqui
   * Adição do *switch* de troca de tema no cabeçalho;
   * Ajuste do componente `NavBar` para reconhecer, permitir mudar o tema e também mudar suas cores com tema;
   * Remoção do componente `NavBarDetail` visto que o `NavBar` foi atualizado para reconhecer a página (pokedex ou pokemon) e modificar conforme necessário;
-  * Componente `Pokemon` utilizando o `ThemeContext.Consumer` para também mudar as cores conforme o tema;
-
+  * Componente `Pokemon` utilizando o `ThemeContext.Consumer` para que possa mudar as cores conforme o tema;
 
   ```
   TODO:
-  * Adicionar o tema para os componentes `PokemonCard` e `Search`;
+  * Adicionar o tema para o componente `PokemonCard`;
   * Adicionar localStorage para guardar as informações de: Tema, Pokemon Pego, Pokemon Favoritado;
   * Aprimorar a query.
   ```
