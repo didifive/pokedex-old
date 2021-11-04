@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import api, { getPokemonImageUrl2 } from "../../services/api";
 
-import { Pokeball } from "../Spinner";
-import { Badge } from "./styles";
+import { ThemeContext } from '../../providers/theme';
 
-import "./styles.css";
+import { Pokeball } from "../Spinner";
+import { PokemonStyles, Badge } from "./styles";
 
 const Pokemon = () => {
   const [pokemon, setPokemom] = useState([]);
@@ -126,131 +126,139 @@ const Pokemon = () => {
   return isLoading ? (
     <Pokeball />
   ) : (
-    <div className="col-12 fadeIn">
-      <h1 className="text-center text-uppercase Section-Heading">
-        {pokemon.name}
-      </h1>
+    <ThemeContext.Consumer>
+      {({ colors }) =>
+        <PokemonStyles
+          textColor={colors.text}
+        >
+          <div className="col-12 fadeIn">
+            <h1 className="text-center text-uppercase Section-Heading">
+              {pokemon.name}
+            </h1>
 
-      <div
-        className="row justify-content-center"
-        style={{ position: "relative", paddingBottom: "1rem" }}
-      >
-        <div className="col-lg-3 col-md-2 bioDiv d-flex flex-wrap justify-content-center">
-          <div className="inner">
-            <table className="table table-borderless">
-              <tbody>
-                <tr>
-                  <td className="text-right font-weight-bold">ID</td>
-                  <td># {pokemon.id}</td>
-                </tr>
-                <tr>
-                  <td className="text-right font-weight-bold">Height</td>
-                  <td style={{ whiteSpace: "nowrap" }}>{pokemon.height} Mt</td>
-                </tr>
-                <tr>
-                  <td className="text-right font-weight-bold">Weight</td>
-                  <td style={{ whiteSpace: "nowrap" }}>{pokemon.weight} Kg</td>
-                </tr>
-                <tr>
-                  <td className="text-right font-weight-bold">Abilities</td>
-                  <td>
-                    <span className="abilities">
-                      {pokemon.abilities.map((ability, index) => (
-                        <Badge
-                          key={index}
-                          className={`ability ${pokemon.types[0]} text-uppercase`}
-                          role="button"
-                          style={{
-                            whiteSpace: "nowrap",
-                            display: "inline-block",
-                            boxShadow: "none",
-                          }}
-                        >
-                          {ability.ability.name}
-                        </Badge>
-                      ))}
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    className="text-right font-weight-bold"
-                    style={{ verticalAlign: "middle" }}
-                  >
-                    Type
-                  </td>
-                  <td>
-                    <div className="row" style={{ flexWrap: "nowrap" }}>
-                      {pokemon.types.map((type, index) => (
-                        <Badge
-                          key={index}
-                          className={`icon ${type} text-capitalize`}
-                        >
-                          <span className="text-white font-weight-bold">
-                            {type}
+            <div
+              className="row justify-content-center"
+              style={{ position: "relative", paddingBottom: "1rem" }}
+            >
+              <div className="col-lg-3 col-md-2 bioDiv d-flex flex-wrap justify-content-center">
+                <div className="inner">
+                  <table className="table table-borderless">
+                    <tbody>
+                      <tr>
+                        <td className="text-right font-weight-bold">ID</td>
+                        <td># {pokemon.id}</td>
+                      </tr>
+                      <tr>
+                        <td className="text-right font-weight-bold">Height</td>
+                        <td style={{ whiteSpace: "nowrap" }}>{pokemon.height} Mt</td>
+                      </tr>
+                      <tr>
+                        <td className="text-right font-weight-bold">Weight</td>
+                        <td style={{ whiteSpace: "nowrap" }}>{pokemon.weight} Kg</td>
+                      </tr>
+                      <tr>
+                        <td className="text-right font-weight-bold">Abilities</td>
+                        <td>
+                          <span className="abilities">
+                            {pokemon.abilities.map((ability, index) => (
+                              <Badge
+                                key={index}
+                                className={`ability ${pokemon.types[0]} text-uppercase`}
+                                role="button"
+                                style={{
+                                  whiteSpace: "nowrap",
+                                  display: "inline-block",
+                                  boxShadow: "none",
+                                }}
+                              >
+                                {ability.ability.name}
+                              </Badge>
+                            ))}
                           </span>
-                        </Badge>
-                      ))}
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="col-lg-5 d-flex flex-wrap align-items-center">
-          <div className="image-container">
-            <img
-              alt=""
-              className="Image img-fluid mx-auto my-auto d-block fadeInOut"
-              src={imagePokemon}
-              style={{
-                zIndex: "100 !important",
-                maxWidth: "85%",
-                height: "auto",
-                paddingTop: "10px",
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="col-lg-3 col-md-2 statDiv my-auto mx-auto d-flex flex-wrap justify-content-center">
-          <div className="inner">
-            <table className="table table-borderless">
-              <tbody>
-                {pokemon.baseStats.map((stat, index) => (
-                  <tr key={index}>
-                    <td
-                      className="text-right font-weight-bold"
-                      style={{ whiteSpace: "nowrap" }}
-                    >
-                      {baseStatsName[index]}
-                    </td>
-                    <td colSpan={3} style={{ width: "100%" }}>
-                      <div className="progress">
-                        <Badge
-                          className={`progress-bar progress-bar-striped progress-bar-animated rounded-sm ${pokemon.types[0]}`}
-                          role="progressbar"
-                          aria-valuenow=""
-                          aria-valuemin="0"
-                          aria-valuemax="255"
-                          style={{
-                            width: `${stat}%`,
-                          }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          className="text-right font-weight-bold"
+                          style={{ verticalAlign: "middle" }}
                         >
-                          <span>{stat}</span>
-                        </Badge>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                          Type
+                        </td>
+                        <td>
+                          <div className="row" style={{ flexWrap: "nowrap" }}>
+                            {pokemon.types.map((type, index) => (
+                              <Badge
+                                key={index}
+                                className={`icon ${type} text-capitalize`}
+                              >
+                                <span className="text-white font-weight-bold">
+                                  {type}
+                                </span>
+                              </Badge>
+                            ))}
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="col-lg-5 d-flex flex-wrap align-items-center">
+                <div className="image-container">
+                  <img
+                    alt=""
+                    className="Image img-fluid mx-auto my-auto d-block fadeInOut"
+                    src={imagePokemon}
+                    style={{
+                      zIndex: "100 !important",
+                      maxWidth: "85%",
+                      height: "auto",
+                      paddingTop: "10px",
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-md-2 statDiv my-auto mx-auto d-flex flex-wrap justify-content-center">
+                <div className="inner">
+                  <table className="table table-borderless">
+                    <tbody>
+                      {pokemon.baseStats.map((stat, index) => (
+                        <tr key={index}>
+                          <td
+                            className="text-right font-weight-bold"
+                            style={{ whiteSpace: "nowrap" }}
+                          >
+                            {baseStatsName[index]}
+                          </td>
+                          <td colSpan={3} style={{ width: "100%" }}>
+                            <div className="progress">
+                              <Badge
+                                className={`progress-bar progress-bar-striped progress-bar-animated rounded-sm ${pokemon.types[0]}`}
+                                role="progressbar"
+                                aria-valuenow=""
+                                aria-valuemin="0"
+                                aria-valuemax="255"
+                                style={{
+                                  width: `${stat}%`,
+                                }}
+                              >
+                                <span>{stat}</span>
+                              </Badge>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </PokemonStyles>
+      }
+    </ThemeContext.Consumer>
   );
 };
 

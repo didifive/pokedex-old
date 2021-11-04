@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { ThemeContext } from '../../providers/theme'
+import { ThemeContext } from '../../providers/theme';
 
 import { NavBarStyles, BackContainer, TitleContainer } from "./styles";
 
