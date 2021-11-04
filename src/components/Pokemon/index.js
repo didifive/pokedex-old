@@ -5,11 +5,13 @@ import api, { getPokemonImageUrl2 } from "../../services/api";
 import { ThemeContext } from '../../providers/theme';
 
 import { Pokeball } from "../Spinner";
-import { PokemonStyles, Badge } from "./styles";
+import { Badge, Menu, PokemonStyles } from "./styles";
+import PokemonFavorite from "../Favorite";
+import PokemonCaught from "../Caught";
 
 const Pokemon = () => {
   const [pokemon, setPokemom] = useState([]);
-  const [pokemonSpecies, setPokemonSpecies] = useState([]);
+/*   const [pokemonSpecies, setPokemonSpecies] = useState([]); */
   const [isLoading, setIsLoading] = useState(true);
   const [imagePokemon, setImagePokemon] = useState("");
 
@@ -75,7 +77,7 @@ const Pokemon = () => {
         });
       });
 
-      await api
+/*       await api
         .get(`pokemon-species/${params.pokemonIndex}`)
         .then((response) => {
           const {
@@ -104,7 +106,7 @@ const Pokemon = () => {
               .join(", "),
             hatchSteps: 255 * (hatch_counter + 1),
           });
-        });
+        }); */
 
       await setImagePokemon(getPokemonImageUrl2(pokemon.id));
 
@@ -135,6 +137,14 @@ const Pokemon = () => {
             <h1 className="text-center text-uppercase Section-Heading">
               {pokemon.name}
             </h1>
+            <Menu>
+              <PokemonCaught
+                pokemon={pokemon}
+              />
+              <PokemonFavorite
+                pokemon={pokemon}
+              />
+            </Menu>
 
             <div
               className="row justify-content-center"

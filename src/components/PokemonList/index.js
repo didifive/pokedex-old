@@ -14,10 +14,7 @@ const PokemonList = () => {
     const pokemonsList = [];
 
     pokemons.forEach((pokemon) => {
-      if (!pokemon.name.includes(query)) {
-        return;
-      }
-
+      pokemon.name.includes(query) &&
       pokemonsList.push(<PokemonCard key={pokemon.name} pokemon={pokemon} />);
     });
 

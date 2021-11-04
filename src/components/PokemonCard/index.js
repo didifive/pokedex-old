@@ -18,6 +18,7 @@ import {
 
 const PokemonCard = ({ pokemon }) => {
   const nameCapitalized = pokemon.name.split("-")[0];
+  
   const { colors } = useContext(ThemeContext);
 
   const pokemonType = pokemon.types.map(

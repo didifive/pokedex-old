@@ -21,7 +21,6 @@ export const PokemonProvider = props => {
   const updatePokemon = pokemon => {
     const index = pokemons.findIndex(({ id }) => id === pokemon.id)
     pokemons[index] = pokemon
-
     setPokemons([...pokemons]);
   }
 
