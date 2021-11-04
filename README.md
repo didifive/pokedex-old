@@ -62,12 +62,17 @@ Este é um *Fork* do projeto de **[Alquipo/pokedex-old](https://github.com/Alqui
 * Duas maneiras de carregar as cores do tema vigente para aplicar ao respectivo componente:
   * `ThemeContext.Consumer` no componente `Pokemon`;
   * Hook `useContext` no componente `PokemonCard`;
+* localStorage adicionado para guardar as informações de: 
+  * Tema;
+  * Pokemon capturado (caught);
+  * Pokemon favorito (favorite);
+* Pokemon capturado (caught) e Pokemon favorito (favorite) componentizados respectivamente em `PokemonCaught` e `PokemonFavorite`;
+
 
 <br/>
 
 ```
 TODO:
-* Adicionar localStorage para guardar as informações de: Tema, Pokemon Pego, Pokemon Favoritado;
 * Aprimorar a query;
 * Voltar paginação e permitir usuário controlar quantidade de pokemons por página na pokedex.
 ```

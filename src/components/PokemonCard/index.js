@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 
-import { PokemonContext } from '../../providers/pokemon';
 import { ThemeContext } from '../../providers/theme';
+
+import PokemonFavorite from "../Favorite";
+import PokemonCaught from "../Caught"
 
 import {
   Card,
@@ -16,23 +18,11 @@ import {
 
 const PokemonCard = ({ pokemon }) => {
   const nameCapitalized = pokemon.name.split("-")[0];
-  const { updatePokemon } = useContext(PokemonContext);
   const { colors } = useContext(ThemeContext);
 
   const pokemonType = pokemon.types.map(
     ({ type }) => type.name[0].toUpperCase() + type.name.slice(1)
   );
-
-  const handleCaughtClick = () => {
-    pokemon.caught = !pokemon.caught
-    updatePokemon(pokemon)
-  }
-
-  const handleFavoriteClick = () => {
-    pokemon.favorite = !pokemon.favorite
-    updatePokemon(pokemon)
-  }
-
 
   return (
     <Container>
@@ -55,15 +45,11 @@ const PokemonCard = ({ pokemon }) => {
         </Card>
       </StyledLink>
       <Menu>
-        <img
-          alt="Caught"
-          src={pokemon.caught ? '/icons/caught.png' : '/icons/not_caught.png'}
-          onClick={handleCaughtClick}
+      <PokemonCaught 
+          pokemon={pokemon}
         />
-        <img
-          alt="Favorite"
-          src={pokemon.favorite ? '/icons/favorite.png' : '/icons/not_favorite.png'}
-          onClick={handleFavoriteClick}
+        <PokemonFavorite 
+          pokemon={pokemon}
         />
       </Menu>
     </Container>
