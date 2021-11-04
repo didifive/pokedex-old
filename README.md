@@ -1,4 +1,6 @@
-<img alt="Pokedex" src=".github/banner.png" />
+<div align="center">
+  <img alt="Pokedex" src=".github/banner.png" />
+</div>
 
 <h1 align="center">
 🚧 Pokedex  | Em Construção 🚧
@@ -41,27 +43,34 @@
 </a>
 
 </p>
+
 <h2 align="center">
-  Bem Vindo à Pokedex
+  Bem Vindo à Pokedex DidiVersion
 </h2>
+
+<div align="center"> 
+  <img alt="Pokedex" src=".github/layout.gif" />
+</div>
 
 ## 🚀 Sobre o Projeto
 
 Este é um *Fork* do projeto de **[Alquipo/pokedex-old](https://github.com/Alquipo/pokedex-old)**, com adição da **Context API** do React apresentado pelo **[Júlio Gonçalves](https://github.com/thejullius)** na aula **Trabalhando com context API no react** do **Bootcamp [Impulso React Web Developer][Impulso React Web Developer]** da **[dio.][dio.]**. Nele foram realizadas as modificações:
 * Adicionado temas *dark* e *light* com propriedades para cores de fundo e texto correpondentes aos temas;
-* Adição do *switch* de troca de tema no cabeçalho;
+* Adição do *switch* de troca de tema no cabeçalho (canto superior direito);
 * Ajuste do componente `NavBar` para reconhecer, permitir mudar o tema e também mudar suas cores com tema;
 * Remoção do componente `NavBarDetail` visto que o `NavBar` foi atualizado para reconhecer a página (pokedex ou pokemon) e modificar conforme necessário;
 * Duas maneiras de carregar as cores do tema vigente para aplicar ao respectivo componente:
   * `ThemeContext.Consumer` no componente `Pokemon`;
   * Hook `useContext` no componente `PokemonCard`;
 
- 
-  ```
-  TODO:
-  * Adicionar localStorage para guardar as informações de: Tema, Pokemon Pego, Pokemon Favoritado;
-  * Aprimorar a query.
-  ```
+<br/>
+
+```
+TODO:
+* Adicionar localStorage para guardar as informações de: Tema, Pokemon Pego, Pokemon Favoritado;
+* Aprimorar a query;
+* Voltar paginação e permitir usuário controlar quantidade de pokemons por página na pokedex.
+```
 
 ## 🔨 Tecnologias:
 

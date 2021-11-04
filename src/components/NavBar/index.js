@@ -38,7 +38,7 @@ const NavBar = (props) => {
             >
               {page === 'pokemon' ?
                 <h1>Pokemon Details</h1> :
-                <h1>My Pokedex</h1>
+                <h1>Pokedex DidiVersion</h1>
               }
             </TitleContainer>
             <BackContainer
