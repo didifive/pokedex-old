@@ -5,8 +5,6 @@ import { ThemeContext } from '../../providers/theme';
 
 import { NavBarStyles, BackContainer, TitleContainer } from "./styles";
 
-
-
 const NavBar = (props) => {
 
   const { page } = props;

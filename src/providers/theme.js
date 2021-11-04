@@ -20,10 +20,11 @@ const themes = {
 export const ThemeContext = createContext();
 
 export const ThemeProvider = props => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   const toggleTheme = () =>
     setTheme(theme === 'dark' ? 'light' : 'dark');
+    localStorage.setItem('theme', theme)
 
   const colors = {
     bgPage: themes[theme].bgPage,
