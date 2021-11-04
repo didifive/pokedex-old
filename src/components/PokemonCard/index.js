@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { PokemonContext } from '../../providers/pokemon';
 
+import { PokemonContext } from '../../providers/pokemon';
+import { ThemeContext } from '../../providers/theme';
 
 import {
   Card,
@@ -16,6 +17,7 @@ import {
 const PokemonCard = ({ pokemon }) => {
   const nameCapitalized = pokemon.name.split("-")[0];
   const { updatePokemon } = useContext(PokemonContext);
+  const { colors } = useContext(ThemeContext);
 
   const pokemonType = pokemon.types.map(
     ({ type }) => type.name[0].toUpperCase() + type.name.slice(1)
@@ -35,8 +37,14 @@ const PokemonCard = ({ pokemon }) => {
   return (
     <Container>
       <StyledLink to={`pokemon/${pokemon.id}`}>
-        <Card className={pokemonType[0]}>
-          <CardId className={pokemonType[0]}># {pokemon.id}</CardId>
+        <Card 
+          className={pokemonType[0]}
+          bgCard={colors.bgCard}
+          textColor={colors.text}
+        >
+          <CardId
+            className={pokemonType[0]}
+          ># {pokemon.id}</CardId>
           <CardImg
             src={pokemon.image}
             alt={nameCapitalized}

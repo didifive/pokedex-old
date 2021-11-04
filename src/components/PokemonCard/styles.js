@@ -59,10 +59,13 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const Card = styled.div`
+export const Card = styled.div.attrs(props => ({
+  bgCard: props.bgCard || '#FFF',
+  textColor: props.textColor || '#FFF'
+}))`
   width: 12rem auto;
-  background: #ecf0f1;
-  color: #e4c439;
+  background: ${props => props.bgCard};
+  color: ${props => props.textColor};
   padding: 1rem;
   border-radius: 10px;
   border: 1px solid;
@@ -77,7 +80,7 @@ export const Card = styled.div`
   cursor: pointer;
   &:hover {
     transform: scale(1.05);
-    color: #fff;
+    color: ${props => props.textColor};
     overflow: hidden;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -96,7 +99,7 @@ export const Card = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: #ecf0f1;
+    background: ${props => props.bgCard};
     border-radius: 100%;
     -webkit-transform: scale(2);
     transform: scale(2);

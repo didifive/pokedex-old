@@ -48,15 +48,17 @@
 ## 🚀 Sobre o Projeto
 
 Este é um *Fork* do projeto de **[Alquipo/pokedex-old](https://github.com/Alquipo/pokedex-old)**, com adição da **Context API** do React apresentado pelo **[Júlio Gonçalves](https://github.com/thejullius)** na aula **Trabalhando com context API no react** do **Bootcamp [Impulso React Web Developer][Impulso React Web Developer]** da **[dio.][dio.]**. Nele foram realizadas as modificações:
-  * Adicionado temas *dark* e *light* com propriedades para cores de fundo e texto correpondentes aos temas;
-  * Adição do *switch* de troca de tema no cabeçalho;
-  * Ajuste do componente `NavBar` para reconhecer, permitir mudar o tema e também mudar suas cores com tema;
-  * Remoção do componente `NavBarDetail` visto que o `NavBar` foi atualizado para reconhecer a página (pokedex ou pokemon) e modificar conforme necessário;
-  * Componente `Pokemon` utilizando o `ThemeContext.Consumer` para que possa mudar as cores conforme o tema;
+* Adicionado temas *dark* e *light* com propriedades para cores de fundo e texto correpondentes aos temas;
+* Adição do *switch* de troca de tema no cabeçalho;
+* Ajuste do componente `NavBar` para reconhecer, permitir mudar o tema e também mudar suas cores com tema;
+* Remoção do componente `NavBarDetail` visto que o `NavBar` foi atualizado para reconhecer a página (pokedex ou pokemon) e modificar conforme necessário;
+* Duas maneiras de carregar as cores do tema vigente para aplicar ao respectivo componente:
+  * `ThemeContext.Consumer` no componente `Pokemon`;
+  * Hook `useContext` no componente `PokemonCard`;
 
+ 
   ```
   TODO:
-  * Adicionar o tema para o componente `PokemonCard`;
   * Adicionar localStorage para guardar as informações de: Tema, Pokemon Pego, Pokemon Favoritado;
   * Aprimorar a query.
   ```
