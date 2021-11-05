@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 
 import { ThemeContext } from '../../providers/theme';
 
-import PokemonFavorite from "../Favorite";
-import PokemonCaught from "../Caught"
+import PokemonStatus from "../PokemonStatus"
 
 import {
   Card,
@@ -45,12 +44,18 @@ const PokemonCard = ({ pokemon }) => {
           <CardDetails>{pokemonType.join(" / ")}</CardDetails>
         </Card>
       </StyledLink>
-      <Menu>
-      <PokemonCaught 
-          pokemon={pokemon}
+      <Menu
+        bgHeader={colors.bgHeader}
+      >
+        <PokemonStatus 
+          key={`caught${pokemon.id}`}
+          pokemonStatus="caught"
+          pokemonId={pokemon.id}
         />
-        <PokemonFavorite 
-          pokemon={pokemon}
+        <PokemonStatus 
+          key={`favorite${pokemon.id}`}
+          pokemonStatus="favorite"
+          pokemonId={pokemon.id}
         />
       </Menu>
     </Container>

@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 const themes = {
   dark: {
     bgPage: '#141414',
-    bgHeader: '#030303',
+    bgHeader: '#090909',
     bgCard: '#454545',
     text: '#fdfdfd',
     hover: '#f48b36'

@@ -66,13 +66,14 @@ Este é um *Fork* do projeto de **[Alquipo/pokedex-old](https://github.com/Alqui
   * Tema;
   * Pokemon capturado (caught);
   * Pokemon favorito (favorite);
-* Pokemon capturado (caught) e Pokemon favorito (favorite) componentizados respectivamente em `PokemonCaught` e `PokemonFavorite`;
+* Pokemon capturado (caught) e Pokemon favorito (favorite) componentizados e abstraídos em `Status`;
 
 
 <br/>
 
 ```
 TODO:
+* Corrigir bug quando se favorita ou pega pokemon na página de detalhes e depois volta para a pokedex;
 * Aprimorar a query;
 * Voltar paginação e permitir usuário controlar quantidade de pokemons por página na pokedex.
 ```

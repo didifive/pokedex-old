@@ -6,8 +6,7 @@ import { ThemeContext } from '../../providers/theme';
 
 import { Pokeball } from "../Spinner";
 import { Badge, Menu, PokemonStyles } from "./styles";
-import PokemonFavorite from "../Favorite";
-import PokemonCaught from "../Caught";
+import PokemonStatus from "../PokemonStatus";
 
 const Pokemon = () => {
   const [pokemon, setPokemom] = useState([]);
@@ -138,11 +137,15 @@ const Pokemon = () => {
               {pokemon.name}
             </h1>
             <Menu>
-              <PokemonCaught
-                pokemon={pokemon}
+              <PokemonStatus 
+                key={`caught${pokemon.id}`}
+                pokemonStatus="caught"
+                pokemonId={pokemon.id}
               />
-              <PokemonFavorite
-                pokemon={pokemon}
+              <PokemonStatus 
+                key={`favorite${pokemon.id}`}
+                pokemonStatus="favorite"
+                pokemonId={pokemon.id}
               />
             </Menu>
 

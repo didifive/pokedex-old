@@ -1,64 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const CardName = styled.h1`
-  text-transform: capitalize;
-  font-size: 2rem;
-  font-weight: 700;
-  width: 170px;
-`;
-
-export const Container = styled.div`
-  margin: 0 .5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 12rem auto;
-  padding-bottom: 1.5rem;
-`;
-
-export const Menu = styled.div`
-  border-radius: 10px;
-  padding-top: 28px;
-  height: 5.5rem;
-  background-color: #ecf0f1;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  width: 96%;
-  align-self: center;
-  margin-top: -20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  img {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-  }
-`;
-
-export const CardImg = styled.img`
-  width: 100px;
-  display: none;
-  margin: auto;
-`;
-
-export const CardDetails = styled.span`
-  font-size: 1.3rem;
-`;
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-  margin: 0.3rem;
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
-`;
-
 export const Card = styled.div.attrs(props => ({
   bgCard: props.bgCard || '#FFF',
   textColor: props.textColor || '#FFF'
@@ -222,6 +164,10 @@ export const Card = styled.div.attrs(props => ({
   }
 `;
 
+export const CardDetails = styled.span`
+  font-size: 1.3rem;
+`;
+
 export const CardId = styled.span`
   width: 3rem;
   color: #333;
@@ -284,5 +230,61 @@ export const CardId = styled.span`
   }
   &.Fairy {
     background-color: #f781d8;
+  }
+`;
+
+export const CardImg = styled.img`
+  width: 100px;
+  display: none;
+  margin: auto;
+`;
+
+export const CardName = styled.h1`
+  text-transform: capitalize;
+  font-size: 2rem;
+  font-weight: 700;
+  width: 170px;
+`;
+
+export const Container = styled.div`
+  margin: 0 .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 12rem auto;
+  padding-bottom: 1.5rem;
+`;
+
+export const Menu = styled.div.attrs(props => ({
+  bgHeader: props.bgHeader || '#FFF',
+}))`
+  border-radius: 10px;
+  padding-top: 28px;
+  height: 5.5rem;
+  background-color: ${props => props.bgHeader};
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 96%;
+  align-self: center;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  margin: 0.3rem;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
   }
 `;
