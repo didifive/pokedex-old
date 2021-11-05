@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <ThemeContext.Consumer>
         {({ colors }) =>
-          <div style={{ backgroundColor: colors.bgPage }}>
+          <div style={{ backgroundColor: colors.bgPage, color: colors.text }}>
             <Route path="/" exact component={Pokedex} />
             <Route path="/pokedex" exact component={Pokedex} />
             <Route path="/pokemon/:pokemonIndex" exact component={Pokemon} />

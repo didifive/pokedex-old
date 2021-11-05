@@ -9,8 +9,6 @@ const Search = ({ getQuery }) => {
     getQuery(q);
   };
 
-  console.log(text);
-
   return (
     <section className="search">
       <form>

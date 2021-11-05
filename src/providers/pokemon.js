@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useCallback, useEffect, useState } from 'react'
 import api, { getPokemonImageUrl } from '../services/api';
 import axios from 'axios';
 
@@ -6,6 +6,12 @@ export const PokemonContext = createContext();
 
 export const PokemonProvider = props => {
   const [pokemons, setPokemons] = useState([]);
+  const [pokemonPerPage] = useState(20);
+  const [totalPokemon] = useState(807);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  const totalPages = Math.ceil(totalPokemon / pokemonPerPage);
 
   const fetchPokemonsDetails = async (pokemons) => {
     for (const pokemon of pokemons) {
@@ -16,6 +22,8 @@ export const PokemonProvider = props => {
         pokemon.image = getPokemonImageUrl(data.id)
     }
     setPokemons([...pokemons]);
+
+    setIsLoading(false);
   };
 
   const updatePokemon = pokemon => {
@@ -24,17 +32,43 @@ export const PokemonProvider = props => {
     setPokemons([...pokemons]);
   }
 
-  const fetchPokemons = async () => {
-    const { data } = await api.get('/pokemon?limit=36')
-    fetchPokemonsDetails(data.results);
-  };
+  const fetchPokemons = useCallback(
+    async () => {
+      const { data } = await api.get(
+        `/pokemon?limit=
+          ${(currentPage + pokemonPerPage) > totalPokemon ?
+          (totalPokemon - currentPage) :
+          pokemonPerPage
+          }
+          &offset=${currentPage}
+        `
+      )
+      fetchPokemonsDetails(data.results);
+    },
+    [currentPage, pokemonPerPage, totalPokemon]
+  );
 
   useEffect(() => {
     if(!pokemons.length) fetchPokemons();
   });
 
+  useEffect(() => {
+    fetchPokemons();
+  },[currentPage, fetchPokemons]);
+
   return (
-    <PokemonContext.Provider value={{ pokemons, updatePokemon }}>
+    <PokemonContext.Provider 
+      value={{
+        currentPage,
+        isLoading,
+        pokemonPerPage,
+        pokemons,
+        setCurrentPage,
+        setIsLoading,
+        totalPages, 
+        updatePokemon
+      }}
+    >
       {props.children}
     </PokemonContext.Provider>
   )
