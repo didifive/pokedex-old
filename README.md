@@ -67,16 +67,14 @@ Este é um *Fork* do projeto de **[Alquipo/pokedex-old](https://github.com/Alqui
   * Pokemon capturado (caught);
   * Pokemon favorito (favorite);
 * Pokemon capturado (caught) e Pokemon favorito (favorite) componentizados e abstraídos no componente `PokemonStatus`;
-* Paginação reprogramada no provider context `pokemon`;
-* 
-
+* Paginação reprogramada no provider context `pokemon`.
 
 <br/>
 
 ```
 TODO:
-* Aprimorar a query;
 * Permitir usuário controlar quantidade de pokemons por página na pokedex.
+* Aprimorar a query;
 ```
 
 ## 🔨 Tecnologias:
